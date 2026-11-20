@@ -1,3 +1,12 @@
+<div align="center">
+  <a href="https://multinex.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-dark.svg">
+      <img src="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-light.svg" alt="Multinex" width="180">
+    </picture>
+  </a>
+</div>
+
 # Aegis — AI Security Firewall Proxy
 
 A local AI firewall. Rust binary. Intercepts all traffic between your applications and AI API endpoints. Scans prompts and responses for prompt injection, PII leakage, credential exposure, and encoded data exfiltration. All classification runs on-device. Nothing leaves the machine.
