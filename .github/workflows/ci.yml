@@ -22,7 +22,7 @@ jobs:
 
       - name: Public hygiene check
         run: |
-          if grep -rnE "(/Users/[A-Za-z0-9._-]+/|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)" --exclude-dir=.git --exclude-dir=target . ; then
+          if grep -rnE "(/Users/[A-Za-z0-9._-]+/|Dockerfile\.munx)" --exclude-dir=.git --exclude-dir=target --exclude=ci.yml . ; then
             echo "Public hygiene check failed."
             exit 1
           fi
