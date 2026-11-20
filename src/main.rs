@@ -1,4 +1,4 @@
-//! Aegis — AI security firewall proxy.
+//! Multinex Shield — AI security firewall proxy.
 //!
 //! Entry point: parses CLI args, loads config, dispatches to subcommands.
 
@@ -88,7 +88,7 @@ async fn main() -> Result<()> {
                 injection_patterns = inj_count,
                 pii_patterns = pii_count,
                 endpoints = ep_count,
-                "Aegis Shield Preview starting"
+                "Multinex Shield Preview starting"
             );
 
             let result = match config.proxy.mode.as_str() {
@@ -106,7 +106,7 @@ async fn main() -> Result<()> {
         Command::Stop => {
             match state::read_pid()? {
                 Some(pid) if state::is_pid_alive(pid) => {
-                    println!("Stopping Aegis (PID {pid})...");
+                    println!("Stopping Multinex Shield (PID {pid})...");
                     if state::send_signal(pid, "-TERM")? {
                         // Wait briefly for process to exit
                         for _ in 0..20 {
@@ -119,23 +119,23 @@ async fn main() -> Result<()> {
                             println!("Process still running. Use 'kill -9 {pid}' to force stop.");
                         } else {
                             let _ = state::remove_pid();
-                            println!("Aegis stopped.");
+                            println!("Multinex Shield stopped.");
                         }
                     } else {
                         println!("Failed to send stop signal to PID {pid}.");
                     }
                 }
                 Some(pid) => {
-                    println!("Aegis is not running (stale PID file for PID {pid}).");
+                    println!("Multinex Shield is not running (stale PID file for PID {pid}).");
                     let _ = state::remove_pid();
                 }
                 None => {
-                    println!("Aegis is not running (no PID file found).");
+                    println!("Multinex Shield is not running (no PID file found).");
                 }
             }
         }
         Command::Status => {
-            println!("Aegis Shield Preview v{}", env!("CARGO_PKG_VERSION"));
+            println!("Multinex Shield Preview v{}", env!("CARGO_PKG_VERSION"));
             println!("─────────────────────────────────");
 
             match state::read_pid()? {
@@ -163,7 +163,7 @@ async fn main() -> Result<()> {
             let log_file = state::log_path()?;
             if !log_file.exists() {
                 println!("No log file found at {}", log_file.display());
-                println!("Start Aegis first with: aegis start");
+                println!("Start Multinex Shield first with: aegis start");
                 return Ok(());
             }
 
@@ -200,7 +200,7 @@ async fn main() -> Result<()> {
         Command::Rules { action } => match action {
             RulesAction::List => {
                 let pipeline = build_pipeline(&config)?;
-                println!("Aegis Shield Preview v{}", env!("CARGO_PKG_VERSION"));
+                println!("Multinex Shield Preview v{}", env!("CARGO_PKG_VERSION"));
                 println!("─────────────────────────────────");
                 println!("Injection patterns: {}", pipeline.injection_count());
                 println!("PII patterns:       {}", pipeline.pii_count());

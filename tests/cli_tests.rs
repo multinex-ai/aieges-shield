@@ -25,7 +25,7 @@ fn help_flag() {
         .arg("--help")
         .assert()
         .success()
-        .stdout(predicate::str::contains("Aegis intercepts traffic"))
+        .stdout(predicate::str::contains("Multinex Shield intercepts traffic"))
         .stdout(predicate::str::contains("Commands:"));
 }
 
@@ -150,7 +150,7 @@ fn status_when_not_running() {
         .arg("status")
         .assert()
         .success()
-        .stdout(predicate::str::contains("Aegis Shield Preview"));
+        .stdout(predicate::str::contains("Multinex Shield Preview"));
 }
 
 #[test]

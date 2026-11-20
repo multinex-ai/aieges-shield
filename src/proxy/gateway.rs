@@ -1,7 +1,7 @@
 //! Reverse proxy mode — routes by path prefix to upstream AI APIs.
 //!
 //! The default mode. User points their SDK base URL at localhost:8080/openai
-//! and Aegis forwards to api.openai.com, scanning all traffic through the
+//! and Multinex Shield forwards to api.openai.com, scanning all traffic through the
 //! detection pipeline.
 
 use std::convert::Infallible;
