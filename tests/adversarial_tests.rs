@@ -1,4 +1,4 @@
-//! Adversarial / security tests for Aegis detection pipeline.
+//! Adversarial / security tests for Multinex Shield detection pipeline.
 //!
 //! These test false positive rates, evasion attempts, and edge cases
 //! that matter for a security product. False positives kill adoption

@@ -1,6 +1,6 @@
 //! Traditional HTTP forward proxy mode (CONNECT tunneling).
 //!
-//! When configured as HTTP_PROXY/HTTPS_PROXY, Aegis receives:
+//! When configured as HTTP_PROXY/HTTPS_PROXY, Multinex Shield receives:
 //! - CONNECT requests for HTTPS destinations → tunnel bytes, log AI endpoints
 //! - Plain HTTP requests → inspect body, run detection pipeline, forward
 //!

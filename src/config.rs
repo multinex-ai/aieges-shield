@@ -1,4 +1,4 @@
-//! Configuration loading for Aegis.
+//! Configuration loading for Multinex Shield.
 //!
 //! Loads from aegis.toml, merges CLI overrides, and falls back to sane defaults.
 //! Config search order: --config flag > ./aegis.toml > ~/.aegis/aegis.toml

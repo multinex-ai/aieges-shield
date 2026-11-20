@@ -1,6 +1,17 @@
-# Aegis — AI Security Firewall Proxy
+<div align="center">
+  <a href="https://multinex.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-dark.svg">
+      <img src="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-light.svg" alt="Multinex" width="180">
+    </picture>
+  </a>
+</div>
+
+# Multinex Shield — AI Security Firewall Proxy
 
 A local AI firewall. Rust binary. Intercepts all traffic between your applications and AI API endpoints. Scans prompts and responses for prompt injection, PII leakage, credential exposure, and encoded data exfiltration. All classification runs on-device. Nothing leaves the machine.
+
+The command-line binary is named `aegis`; that name is unchanged so existing scripts keep working.
 
 ## Install
 
@@ -15,7 +26,7 @@ cargo build --release
 # Start the gateway proxy
 aegis start
 
-# In your app, point your AI SDK at Aegis:
+# In your app, point your AI SDK at Multinex Shield:
 export OPENAI_BASE_URL=http://localhost:8080/openai
 
 # Test injection detection
@@ -69,8 +80,8 @@ Pipeline short-circuits: if injection is detected, PII scan is skipped.
 
 ## Proxy Modes
 
-- **Gateway** (default): Reverse proxy. Point your SDK's base URL at `localhost:8080/<provider>`. Aegis strips the prefix, scans the body, and forwards to the real API over TLS. Full request/response inspection.
-- **Proxy**: Forward HTTP proxy. Set `HTTP_PROXY=http://localhost:8080`. HTTPS traffic is tunneled (CONNECT) — Aegis logs the destination but cannot inspect encrypted bodies without TLS MITM (v0.2).
+- **Gateway** (default): Reverse proxy. Point your SDK's base URL at `localhost:8080/<provider>`. Multinex Shield strips the prefix, scans the body, and forwards to the real API over TLS. Full request/response inspection.
+- **Proxy**: Forward HTTP proxy. Set `HTTP_PROXY=http://localhost:8080`. HTTPS traffic is tunneled (CONNECT) — Multinex Shield logs the destination but cannot inspect encrypted bodies without TLS MITM (v0.2).
 
 ## Configuration
 

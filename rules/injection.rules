@@ -1,4 +1,4 @@
-# Aegis Injection Detection Patterns
+# Multinex Shield Injection Detection Patterns
 # One pattern per line. Case-insensitive matching via Aho-Corasick.
 # Lines starting with # are comments. Empty lines ignored.
 

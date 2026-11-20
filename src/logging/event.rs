@@ -5,7 +5,7 @@
 
 use serde::Serialize;
 
-/// Structured event for every request processed by Aegis.
+/// Structured event for every request processed by Multinex Shield.
 #[derive(Debug, Serialize)]
 pub struct AegisEvent {
     pub timestamp: String,
