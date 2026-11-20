@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Rust check, test & public hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Cargo test
+        run: cargo test --locked
+
+      - name: Public hygiene check
+        run: |
+          if grep -rnE "(/Users/[A-Za-z0-9._-]+/|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)" --exclude-dir=.git --exclude-dir=target . ; then
+            echo "Public hygiene check failed."
+            exit 1
+          fi
+          echo "Public hygiene check passed."
